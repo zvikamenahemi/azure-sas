@@ -18,7 +18,7 @@ Azure::SAS::BLOB.new(
   signedpermissions: 'r'            # Read-only
   signedexpiry: Time.now + (60 * 5) # 5 minutes after now the link will be expired
   signedversion: '2013-08-15' # the version of your blob service api. can be found on requests response header
-  contentdisposition: "attachment; filename=test.csv", # setes Content-Disposition on response header
+  contentdisposition: "attachment; filename=test.csv", # sets Content-Disposition on response header
   contenttype: 'binary' # sets Content-Type on response header
 ).generate
 ```

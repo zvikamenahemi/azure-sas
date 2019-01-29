@@ -1,0 +1,53 @@
+PATH
+  remote: .
+  specs:
+    azure-sas (0.1)
+      addressable (~> 2.3)
+      azure (~> 0.7)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    azure (0.7.7)
+      addressable (~> 2.3)
+      azure-core (~> 0.1)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      mime-types (>= 1, < 4.0)
+      nokogiri (~> 1.6)
+      systemu (~> 2.6)
+      thor (~> 0.19)
+    azure-core (0.1.6)
+      faraday (~> 0.9)
+      faraday_middleware (~> 0.10)
+      nokogiri (~> 1.6)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.11.0.1)
+      faraday (>= 0.7.4, < 1.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    mini_portile2 (2.1.0)
+    minitest (5.10.1)
+    multipart-post (2.0.0)
+    nokogiri (1.7.0.1)
+      mini_portile2 (~> 2.1.0)
+    public_suffix (2.0.5)
+    rake (12.0.0)
+    systemu (2.6.5)
+    thor (0.19.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  azure-sas!
+  bundler (~> 1.5)
+  minitest (~> 5.10)
+  rake (~> 12.0)
+
+BUNDLED WITH
+   1.13.6

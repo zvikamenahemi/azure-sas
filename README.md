@@ -25,3 +25,5 @@ Azure::SAS::BLOB.new(
 
 # Links
  * https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/constructing-a-service-sas
+ * https://docs.microsoft.com/en-us/rest/api/storageservices/versioning-for-the-azure-storage-services
+ * https://docs.microsoft.com/en-us/rest/api/storageservices/service-sas-examples

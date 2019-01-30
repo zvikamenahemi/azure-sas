@@ -19,9 +19,9 @@ module Azure
         @options.signedresource = BLOB_RESOURCE
       end
 
-      def signature
+      def signature(generate_method)
         canonicalized_resource = CanonicalizedResource.new(@storage_account, @uri, blob: true).generate
-        body = StringToSign::V20120212::Blob.new(canonicalized_resource, @options).generate
+        body = StringToSign::V20120212::Blob.new(canonicalized_resource, @options).public_send(generate_method)
         Sign.new(@storage_access_key, body).perform
       end
     end
@@ -32,6 +32,11 @@ module Azure
     CONTAINER_RESOURCE = 'c'.freeze
 
     SIGNATURE = 'sig'.freeze
+
+    SIGNATURE_TYPE = {
+      get: 'generate_get',
+      put: 'generate_put'
+    }
 
     def initialize(storage_access_key, storage_account, uri, options = {})
       @uri = Addressable::URI.parse(uri)
@@ -44,18 +49,27 @@ module Azure
       end
     end
 
-    def generate
-      uri = @uri.dup
-      uri.query_values = (uri.query_values || {}).merge(query_values)
-      uri.to_s
+    def generate_get
+      generate(SIGNATURE_TYPE[:get])
+    end
+
+    def generate_put
+      generate(SIGNATURE_TYPE[:put])
     end
 
     private
 
+    def generate(generate_method)
+      uri = @uri.dup
+      uri.query_values = (uri.query_values || {})
+        .merge(query_values())
+        .merge(SIGNATURE => signature(generate_method))
+      uri.to_s
+    end
+
     def query_values
       @options
         .to_query_values
-        .merge(SIGNATURE => signature)
     end
 
     def signature

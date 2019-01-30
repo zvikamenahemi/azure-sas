@@ -9,13 +9,19 @@ module Azure
             @options = options
           end
 
-          def generate
+          def generate_base
             [
               @options.signedpermissions.to_s,
               (@options.signedstart && @options.signedstart.utc.iso8601).to_s,
               (@options.signedexpiry && @options.signedexpiry.utc.iso8601).to_s,
               @canonicalized_resource.to_s,
-              @options.identifier.to_s,
+              @options.identifier.to_s
+            ]
+          end
+
+          def generate_get
+            generate_base +
+            [
               @options.signedversion.to_s,
               "",
               @options.contentdisposition.to_s,
@@ -23,6 +29,10 @@ module Azure
               "",
               @options.contenttype.to_s
             ].compact.join("\n").force_encoding('UTF-8')
+          end
+
+          def generate_put
+            generate_base.compact.join("\n").force_encoding('UTF-8')
           end
         end
       end

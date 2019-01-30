@@ -62,7 +62,7 @@ class Azure::SasTest < Minitest::Test
         self.class.key,
         self.class.storage,
         *args
-      ).generate
+      ).generate_put
 
       assert_equal URI.escape(expected).to_s, URI.unescape(actual)
     end

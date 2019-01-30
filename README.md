@@ -7,7 +7,7 @@ depends on the deprecated version of `celluloid` and is not actively mainained.
 
 Added support for SAS version 2013-08-15 and later.
 
-# Example - generate signed get request
+# Example - generate signed get url
 
 ```ruby
 url = 'https://myaccount.blob.core.windows.net/music '
@@ -23,7 +23,7 @@ Azure::SAS::BLOB.new(
 ).generate_get
 ```
 
-# Example - generate signed put request
+# Example - generate signed put url
 
 ```ruby
 url = 'https://myaccount.blob.core.windows.net/music '

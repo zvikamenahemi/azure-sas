@@ -1,4 +1,4 @@
-require 'addressable/uri'
+require '../gems/addressable/uri'
 require 'azure'
 require 'uri'
 require 'time'

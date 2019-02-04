@@ -1,4 +1,4 @@
-require '../gems/addressable/uri'
+require 'vendor/bundle/ruby/2.3.0/gems/addressable/uri'
 require 'azure'
 require 'uri'
 require 'time'

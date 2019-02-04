@@ -20,5 +20,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'minitest', '~> 5.10'
   spec.add_dependency 'azure', '~> 0.7'
-  spec.add_dependency 'addressable', '~> 2.3.8'
+  spec.add_dependency 'addressable'
 end

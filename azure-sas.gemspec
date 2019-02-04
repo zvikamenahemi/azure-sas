@@ -1,4 +1,4 @@
-require File.expand_path('../lib', __FILE__)
+$:.push File.expand_path("../lib", __FILE__)
 require 'azure/sas'
 
 Gem::Specification.new do |spec|
